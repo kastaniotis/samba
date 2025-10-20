@@ -7,7 +7,8 @@ ENV SMB_USER="smbuser" \
     SMB_STORAGE="/storage"
 
 # Install Samba
-RUN apk add --no-cache samba
+RUN apk add --no-cache samba && \
+    echo "ICONICNAS" > /etc/samba/machine_id
 
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
