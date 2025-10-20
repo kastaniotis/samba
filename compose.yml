@@ -1,0 +1,12 @@
+services:
+  samba:
+    build: .
+    container_name: samba
+    ports:
+      - "445:445"
+    environment:
+      SMB_USER: "uploader"
+      SMB_PASS: "1234"
+    volumes:
+      - ./data:/storage
+    restart: unless-stopped
